@@ -1,1 +1,19 @@
-
+$color-transition-time: .2s;
+:root {
+    //light theme
+    --bg-text-color: 255, 255, 255;
+    --text-color: 12, 12, 12;
+    --shadow_color: 0, 0, 0;
+    --gradient-color-1: 108, 29, 103;
+    --gradient-color-2: 100, 25, 148;
+    --sidebar-gradient-color-1: 255, 255, 255;
+    --sidebar-gradient-color-2: 251, 247, 247;
+    //dark theme
+    --bg-text-color: 19, 19, 19;
+    --text-color: 255, 255, 255;
+    --shadow_color: 255, 255, 255;
+    --gradient-color-1: 43, 47, 115;
+    --gradient-color-2: 165, 97, 30;
+    --sidebar-gradient-color-1: 35, 35, 35;
+    --sidebar-gradient-color-2: 46, 46, 46;
+}
