@@ -1,18 +1,11 @@
 :root {
-  --bg-text-color: 255, 255, 255;
+  --bg-color: 255, 255, 255;
   --text-color: 12, 12, 12;
   --shadow_color: 0, 0, 0;
   --gradient-color-1: 108, 29, 103;
   --gradient-color-2: 100, 25, 148;
   --sidebar-gradient-color-1: 255, 255, 255;
-  --sidebar-gradient-color-2: 251, 247, 247;
-  --bg-text-color: 19, 19, 19;
-  --text-color: 255, 255, 255;
-  --shadow_color: 255, 255, 255;
-  --gradient-color-1: 43, 47, 115;
-  --gradient-color-2: 165, 97, 30;
-  --sidebar-gradient-color-1: 35, 35, 35;
-  --sidebar-gradient-color-2: 46, 46, 46; }
+  --sidebar-gradient-color-2: 251, 247, 247; }
 
 body {
   margin: 0; }
@@ -102,8 +95,35 @@ ul {
     margin: 0;
     cursor: default;
     min-height: 100vh;
-    display: flex;
-    background-color: blue; }
+    display: flex; }
     @media (max-width: 1100px) {
       :root body {
         flex-direction: column; } }
+  :root #main {
+    flex-grow: 1;
+    position: relative; }
+  :root #main::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    right: 0;
+    height: 44vh;
+    width: 20%;
+    background-image: linear-gradient(rgba(var(--gradient-color-1), 1), rgba(var(--gradient-color-2), 1));
+    clip-path: polygon(0 0, 100% 0, 100% 83%, 22% 100%); }
+    @media (max-width: 1600px) {
+      :root #main::after {
+        width: 25%; } }
+    @media (max-width: 1400px) {
+      :root #main::after {
+        height: 38vh;
+        width: 40%;
+        clip-path: polygon(0, 0, 100% 0, 100% 83%, 22% 100%); } }
+    @media (max-width: 1100px) {
+      :root #main::after {
+        position: absolute;
+        height: 10vh;
+        width: 100%;
+        top: auto;
+        bottom: 0;
+        clip-path: polygon(0 39%, 100% 0, 100% 100%, 0 100%); } }
