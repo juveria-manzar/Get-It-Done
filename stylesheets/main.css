@@ -5,7 +5,14 @@
   --gradient-color-1: 108, 29, 103;
   --gradient-color-2: 100, 25, 148;
   --sidebar-gradient-color-1: 255, 255, 255;
-  --sidebar-gradient-color-2: 251, 247, 247; }
+  --sidebar-gradient-color-2: 251, 247, 247;
+  --bg-color: 19, 19, 19;
+  --text-color: 255, 255, 255;
+  --shadow-color: 255, 255, 255;
+  --gradient-color-1: 34, 208, 163;
+  --gradient-color-2: 32, 173, 211;
+  --sidebar-gradient-color-1: 35, 35, 35;
+  --sidebar-gradient-color-2: 46, 46, 46; }
 
 body {
   margin: 0; }
@@ -369,6 +376,83 @@ input#menu:checked ~ #menu-content {
         text-align: center;
         font-weight: 500;
         text-transform: uppercase; } }
+
+@keyframes flipInX {
+  from {
+    transform: perspective(400px) rotate3d(1, 0, 0, 90deg) translateY(-50%);
+    animation-timing-function: ease-in;
+    opacity: 0; }
+  40% {
+    transform: perspective(400px) rotate3d(1, 0, 0, -20deg) translateY(-50%);
+    animation-timing-function: ease-in; }
+  60% {
+    transform: perspective(400px) rotate3d(1, 0, 0, 10deg) translateY(-50%);
+    opacity: 1; }
+  80% {
+    transform: perspective(400px) rotate3d(1, 0, 0, -5deg) translateY(-50%); }
+  to {
+    transform: perspective(400px) translateY(-50%); } }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0; }
+  to {
+    opacity: 1; } }
+
+#modal {
+  border: none;
+  font-size: 1rem;
+  background-image: linear-gradient(to left, rgba(var(--gradient-color-1), 1), rgba(var(--gradient-color-2), 1));
+  padding: 2.8rem 10rem;
+  position: fixed;
+  z-index: 100;
+  top: 50%;
+  color: white;
+  transform: translateY(-50%);
+  outline: none; }
+  #modal h2 {
+    margin-bottom: 30px;
+    line-height: 170%; }
+  #modal button {
+    outline: none;
+    border: 2px solid white;
+    font-size: 1.15rem;
+    color: white;
+    padding: .6em 4em;
+    transition: all .1s;
+    background-color: transparent; }
+    #modal button:hover {
+      transform: scale(1.1); }
+  #modal[open] {
+    animation: flipInX ease .5s .2s;
+    animation-fill-mode: both; }
+    @media (max-width: 1100px) {
+      #modal[open] {
+        animation: fadeIn ease .25s; } }
+  @media (max-width: 1400px) {
+    #modal {
+      font-size: 1.65rem; }
+      #modal button {
+        font-size: 1.85rem; } }
+  @media (max-width: 1100px) {
+    #modal {
+      font-size: 3.2rem;
+      height: 100vh;
+      width: 100%;
+      text-align: center;
+      padding: 0;
+      padding-top: 60vh;
+      margin: 0; }
+      #modal h2 {
+        text-align: center; }
+      #modal button {
+        font-size: 3.5rem; } }
+  @media (max-width: 500px) {
+    #modal {
+      font-size: 1.45rem;
+      letter-spacing: -1px; }
+      #modal button {
+        font-size: 3rem; } }
 
 @keyframes task-exit {
   from {
