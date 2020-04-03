@@ -7,7 +7,7 @@ function saveData(key, value) {
     }
 }
 
-function saveData(key, value) {
+function loadData(key) {
     if (localStorage) {
         if (key in localStorage) {
             return localStorage.getItem(key)
