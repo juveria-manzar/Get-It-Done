@@ -12,7 +12,45 @@ totalTasks.innerHTML = loadData('totalTasks')
 completedTask.innerHTML = loadData('completedTasks')
 
 function updateTasks() {
-    console.log('Update Task')
+    readTasks(taskStore, (tasks) => {
+        let list = document.getElementById('task-list')
+        let innerHTML = "";
+        for (let i = 0; i < tasks.length; i++) {
+            innerHTML += `
+            <li data-id:'${tasks[i].id}' onclick='deleteTaskOnClick(this)'>${tasks[i].title}</li>`;
+        }
+        list.innerHTML = innerHTML
+    })
+
+
+    readTasks(completedTaskStore, (tasks) => {
+        console.log('hello')
+        let list = document.getElementById('completed-taskss-list')
+        let innerHTML = "";
+        tasks.reverse()
+        for (let i = 0; i < Math.min(tasks.length, maxRecentlyDeleted); i++) {
+            innerHTML += `<li class='invert'>${tasks[i].title}: <span>${tasks[i].completedDate}</span></li>`;
+        }
+        list.innerHTML = innerHTML
+    })
+}
+
+function onLoad() {
+    updateTasks()
+}
+
+function deleteTaskOnClick(elem) {
+    let id = Number(elem.dataset.id)
+
+    let task = readOneTask(taskStore, id, function(task) {
+        let completedTask = new completedTasks(task.title)
+        addTask(completedTaskStore, completedTask, function() {
+
+            elem.classList.add('exit')
+
+        })
+    })
+
 }
 
 input.addEventListener('keydown', function(e) {

@@ -18,6 +18,7 @@ window.onload = function() {
 
     req.onsuccess = function() {
         database = req.result;
+        onLoad()
     }
 
     req.onerror = function(event) {
