@@ -121,3 +121,22 @@ function updateTheme(theme) {
         icons[i].style.filter = `brightness(100%) invert(${invertStrength})`
     }
 }
+
+function attemptReset() {
+    modal.showModal();
+}
+
+function closeModal() {
+    modal.close()
+}
+
+function reset() {
+    saveData('TotalTasks', 0)
+    totalTasks.innerHTML = 0
+    saveData('CompletedTasks', 0)
+    completedTasks.innerHTML = 0
+
+    deleteAllTasks(taskStore)
+    deleteAllTasks(completedTaskStore)
+    updateTasks()
+}
