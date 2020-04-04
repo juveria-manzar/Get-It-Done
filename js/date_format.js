@@ -45,4 +45,4 @@ function getCurrentDate() {
     return fullDate
 }
 
-console.log(getCurrentDate())
+// console.log(getCurrentDate())

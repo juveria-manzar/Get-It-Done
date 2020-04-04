@@ -465,7 +465,9 @@ input#menu:checked ~ #menu-content {
     opacity: 0; } }
 
 .exit {
-  animation: task-exit .35s forward; }
+  animation-name: task-exit;
+  animation-duration: .35s;
+  animation-fill-mode: forwards; }
 
 #task-list {
   height: 40vh;

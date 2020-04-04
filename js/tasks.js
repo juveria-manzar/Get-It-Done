@@ -68,6 +68,7 @@ function readTasks(store, success, error = defaultError) {
 function readOneTask(store, id, success, error = defaultError) {
     let transaction = database.transaction([store], "readonly");
     let objectStore = transaction.objectStore(store);
+
     let request = objectStore.get(id);
     request.onerror = error;
     request.onsuccess = function() {

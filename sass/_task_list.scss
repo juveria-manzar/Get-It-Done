@@ -13,7 +13,9 @@
 }
 
 .exit {
-    animation: task-exit .35s forward;
+    animation-name: task-exit;
+    animation-duration: .35s;
+    animation-fill-mode: forwards;
 }
 
 #task-list {
